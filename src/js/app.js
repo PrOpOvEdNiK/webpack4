@@ -1,5 +1,7 @@
 import "../sass/style.scss";
 
+import 'bootstrap';
+
 import * as f from "./modules/functions";
 
 const APP = 'WEBPACK4_BOILERPLATE: ';

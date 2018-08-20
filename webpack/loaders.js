@@ -20,9 +20,16 @@ const SassLoader = {
             loader: MiniCssExtractPlugin.loader
         },
         {
-            loader: "css-loader",
+            loader: "css-loader"
+        },
+        {
+            loader: "postcss-loader",
             options: {
-                //url: false
+                ident: 'postcss',
+                plugins: [
+                    require('precss')(),
+                    require('autoprefixer')(),
+                ]
             }
         },
         {
