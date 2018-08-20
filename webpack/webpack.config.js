@@ -9,14 +9,15 @@ module.exports = {
     },
     module: {
         rules: [
+            loaders.FileLoader,
             loaders.JSLoader,
-            loaders.SassLoader,
-            loaders.FileLoader
+            loaders.SassLoader
         ]
     },
     plugins: [
         plugins.ProvidePlugin,
-        plugins.CssExtractPlugin
+        plugins.CssExtractPlugin,
+        plugins.SpritePlugin
     ],
     output: {
         path: path.resolve(__dirname, "../dist"),

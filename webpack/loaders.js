@@ -32,6 +32,7 @@ const SassLoader = {
             loader: "sass-loader",
             options: {
                 sourceMap: true,
+                outputStyle: 'compressed',
                 implementation: require("sass"),
                 fiber: Fiber
             }
