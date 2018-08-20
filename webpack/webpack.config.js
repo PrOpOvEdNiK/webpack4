@@ -3,13 +3,15 @@ const loaders = require('./loaders');
 const plugins = require('./plugins');
 
 module.exports = {
+    devtool: "source-map",
     entry: {
         app: "./src/js/app.js"
     },
     module: {
         rules: [
             loaders.JSLoader,
-            loaders.SassLoader
+            loaders.SassLoader,
+            loaders.FileLoader
         ]
     },
     plugins: [

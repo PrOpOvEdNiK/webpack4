@@ -20,7 +20,13 @@ const SassLoader = {
             loader: MiniCssExtractPlugin.loader
         },
         {
-            loader: "css-loader"
+            loader: "css-loader",
+            options: {
+                //url: false
+            }
+        },
+        {
+            loader: "resolve-url-loader"
         },
         {
             loader: "sass-loader",
@@ -33,7 +39,22 @@ const SassLoader = {
     ]
 };
 
+const FileLoader = {
+    test: /\.(png|jpg|gif)$/,
+    use: [
+        {
+            loader: "file-loader",
+            options: {
+                name: '[name].[ext]',
+                outputPath: '../dist/images',
+                publicPath: '../images',
+            }
+        }
+    ]
+};
+
 module.exports = {
     JSLoader: JSLoader,
     SassLoader: SassLoader,
+    FileLoader: FileLoader,
 };
