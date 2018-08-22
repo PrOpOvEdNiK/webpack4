@@ -18,7 +18,8 @@ const CssExtractPlugin = new MiniCssExtractPlugin({
 const MinifyJsPlugin = new UglifyJsPlugin({
     cache: true,
     parallel: true,
-    sourceMap: true
+    sourceMap: true,
+    extractComments: true
 });
 
 const MinifyCssPlugin = new OptimizeCSSAssetsPlugin();
