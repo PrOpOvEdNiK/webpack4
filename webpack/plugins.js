@@ -1,3 +1,5 @@
+const CONFIG =  require('./config');
+
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -5,14 +7,11 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const SpritesmithPlugin = require('webpack-spritesmith');
 
-const ProvidePlugin = new webpack.ProvidePlugin({
-    "$": "jquery",
-    "jQuery": "jquery"
-});
+const ProvidePlugin = new webpack.ProvidePlugin(CONFIG.providePlugin);
 
 const CssExtractPlugin = new MiniCssExtractPlugin({
-    filename: "css/[name].css",
-    chunkFilename: "css/[id].css"
+    filename: CONFIG.cssOutputTpl,
+    chunkFilename: CONFIG.cssOutputTplExtra
 });
 
 const MinifyJsPlugin = new UglifyJsPlugin({
@@ -26,15 +25,15 @@ const MinifyCssPlugin = new OptimizeCSSAssetsPlugin();
 
 const SpritePlugin = new SpritesmithPlugin({
     src: {
-        cwd: path.resolve(__dirname, '../src/images/icons'),
+        cwd: path.resolve(__dirname, CONFIG.spriteImagesPath),
         glob: '*.png'
     },
     target: {
-        image: path.resolve(__dirname, '../src/images/sprite.png'),
-        css: path.resolve(__dirname, '../src/sass/mixin/sprite.scss')
+        image: path.resolve(__dirname, CONFIG.spriteGenPng),
+        css: path.resolve(__dirname, CONFIG.spriteGenScss)
     },
     apiOptions: {
-        cssImageRef: "../src/images/sprite.png"
+        cssImageRef: CONFIG.spriteGenPng
     },
     spritesmithOptions: {
         padding: 10

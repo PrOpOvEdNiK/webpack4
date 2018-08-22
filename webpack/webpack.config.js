@@ -1,12 +1,12 @@
+const CONFIG = require('./config');
+
 const path = require('path');
 const loaders = require('./loaders');
 const plugins = require('./plugins');
 
 module.exports = {
     devtool: "source-map",
-    entry: {
-        app: "./src/js/app.js"
-    },
+    entry: CONFIG.entryPoint,
     optimization: {
         minimizer: [
             plugins.MinifyJsPlugin,
@@ -26,7 +26,7 @@ module.exports = {
         plugins.SpritePlugin
     ],
     output: {
-        path: path.resolve(__dirname, "../dist"),
-        filename: "js/[name].js"
+        path: path.resolve(__dirname, CONFIG.jsOutputPath),
+        filename: CONFIG.jsOutputTpl
     },
 };

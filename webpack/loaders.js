@@ -1,3 +1,5 @@
+const CONFIG = require('./config');
+
 const Fiber = require('fibers');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -53,9 +55,9 @@ const FileLoader = {
         {
             loader: "file-loader",
             options: {
-                name: '[name].[ext]',
-                outputPath: '../dist/images',
-                publicPath: '../images',
+                name: CONFIG.fileLoaderNameTpl,
+                outputPath: CONFIG.fileLoaderOutputPath,
+                publicPath: CONFIG.fileLoaderPublicPath,
             }
         }
     ]
