@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const SpritesmithPlugin = require('webpack-spritesmith');
 
 const ProvidePlugin = new webpack.ProvidePlugin({
@@ -12,6 +14,14 @@ const CssExtractPlugin = new MiniCssExtractPlugin({
     filename: "css/[name].css",
     chunkFilename: "css/[id].css"
 });
+
+const MinifyJsPlugin = new UglifyJsPlugin({
+    cache: true,
+    parallel: true,
+    sourceMap: true
+});
+
+const MinifyCssPlugin = new OptimizeCSSAssetsPlugin();
 
 const SpritePlugin = new SpritesmithPlugin({
     src: {
@@ -34,5 +44,7 @@ const SpritePlugin = new SpritesmithPlugin({
 module.exports = {
     ProvidePlugin: ProvidePlugin,
     CssExtractPlugin: CssExtractPlugin,
+    MinifyJsPlugin: MinifyJsPlugin,
+    MinifyCssPlugin: MinifyCssPlugin,
     SpritePlugin: SpritePlugin
 };

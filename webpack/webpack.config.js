@@ -7,6 +7,12 @@ module.exports = {
     entry: {
         app: "./src/js/app.js"
     },
+    optimization: {
+        minimizer: [
+            plugins.MinifyJsPlugin,
+            plugins.MinifyCssPlugin,
+        ]
+    },
     module: {
         rules: [
             loaders.FileLoader,
