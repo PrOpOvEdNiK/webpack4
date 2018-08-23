@@ -16,6 +16,7 @@ module.exports = {
     module: {
         rules: [
             loaders.FileLoader,
+            loaders.FontsLoader,
             loaders.JSLoader,
             loaders.SassLoader
         ]

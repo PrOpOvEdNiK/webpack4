@@ -42,9 +42,9 @@ const SpritePlugin = new SpritesmithPlugin({
 
 
 module.exports = {
-    ProvidePlugin: ProvidePlugin,
-    CssExtractPlugin: CssExtractPlugin,
-    MinifyJsPlugin: MinifyJsPlugin,
-    MinifyCssPlugin: MinifyCssPlugin,
-    SpritePlugin: SpritePlugin
+    ProvidePlugin,
+    CssExtractPlugin,
+    MinifyJsPlugin,
+    MinifyCssPlugin,
+    SpritePlugin
 };

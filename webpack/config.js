@@ -25,14 +25,22 @@ const providePlugin = {
 const cssOutputTpl = "css/[name].css";
 const cssOutputTplExtra = "css/[id].css";
 
-// Куда будут копироваться файлы встречающиеся в url() sass файлов
+// Куда будут копироваться файлы изображений встречающиеся в url() sass файлов
 const fileLoaderOutputPath = "../dist/images";
+
+// Путь к скопированным файлам изображений для создания новых url() в генерирующихся css (относительно `fileLoaderOutputPath`)
+const fileLoaderPublicPath = "../images";
+
+// Куда будут копироваться файлы шрифтов встречающиеся в url() sass файлов
+const fontsLoaderOutputPath = "../dist/fonts";
+
+// Путь к скопированным файлам шрифтов для создания новых url() в генерирующихся css (относительно `fileLoaderOutputPath`)
+const fontsLoaderPublicPath = "../fonts";
+
+
 
 // Шаблон имени копирумого файла
 const fileLoaderNameTpl = "[name].[ext]";
-
-// Путь к скопированным файлам для создания новых url() в генерирующихся css (относительно `fileLoaderOutputPath`)
-const fileLoaderPublicPath = "../images";
 
 
 /******************************** SPRITE *************************************/
@@ -43,7 +51,7 @@ const spriteImagesPath = "../src/images/icons";
 const spriteGenPng = "../src/images/sprite.png";
 
 // Файл в котором будут сгенерированы все переменные и миксины для спрайта
-const spriteGenScss = "../src/sass/mixin/sprite.scss";
+const spriteGenScss = "../src/sass/mixins/sprite.scss";
 
 
 module.exports = {
@@ -56,6 +64,8 @@ module.exports = {
     fileLoaderNameTpl,
     fileLoaderOutputPath,
     fileLoaderPublicPath,
+    fontsLoaderOutputPath,
+    fontsLoaderPublicPath,
     spriteImagesPath,
     spriteGenPng,
     spriteGenScss
