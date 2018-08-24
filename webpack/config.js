@@ -28,17 +28,23 @@ const cssOutputTplExtra = "css/[id].css";
 
 /******************************** FILES *************************************/
 
-// Куда будут копироваться файлы изображений встречающиеся в url() sass файлов
-const fileLoaderOutputPath = "../dist/images";
+// Имя папки с изображениями
+const imagesFolder = "images";
+
+// Куда будут копироваться файлы изображений встречающиеся в url() sass файлов (относительно `jsOutputPath`)
+const fileLoaderOutputPath = "./" + imagesFolder;
 
 // Путь к скопированным файлам изображений для создания новых url() в генерирующихся css (относительно `jsOutputPath/cssOutputTpl`)
-const fileLoaderPublicPath = "../images";
+const fileLoaderPublicPath = "../" + imagesFolder;
 
-// Куда будут копироваться файлы шрифтов встречающиеся в url() sass файлов
-const fontsLoaderOutputPath = "../dist/fonts";
+// Имя папки с изображениями
+const fontsFolder = "fonts";
+
+// Куда будут копироваться файлы шрифтов встречающиеся в url() sass файлов (относительно `jsOutputPath`)
+const fontsLoaderOutputPath = "./" + fontsFolder;
 
 // Путь к скопированным файлам шрифтов для создания новых url() в генерирующихся css (относительно `jsOutputPath/cssOutputTpl`)
-const fontsLoaderPublicPath = "../fonts";
+const fontsLoaderPublicPath = "../" + fontsFolder;
 
 // Шаблон имени копирумого файла
 const fileLoaderNameTpl = "[name].[ext]";
