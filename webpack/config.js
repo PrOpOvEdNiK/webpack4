@@ -20,24 +20,25 @@ const providePlugin = {
 };
 
 
-/******************************** SASS *************************************/
+/******************************** CSS *************************************/
 // Шаблон для сохранения CSS бандлов (относительно `outputPath`)
 const cssOutputTpl = "css/[name].css";
 const cssOutputTplExtra = "css/[id].css";
 
+
+/******************************** FILES *************************************/
+
 // Куда будут копироваться файлы изображений встречающиеся в url() sass файлов
 const fileLoaderOutputPath = "../dist/images";
 
-// Путь к скопированным файлам изображений для создания новых url() в генерирующихся css (относительно `fileLoaderOutputPath`)
+// Путь к скопированным файлам изображений для создания новых url() в генерирующихся css (относительно `jsOutputPath/cssOutputTpl`)
 const fileLoaderPublicPath = "../images";
 
 // Куда будут копироваться файлы шрифтов встречающиеся в url() sass файлов
 const fontsLoaderOutputPath = "../dist/fonts";
 
-// Путь к скопированным файлам шрифтов для создания новых url() в генерирующихся css (относительно `fileLoaderOutputPath`)
+// Путь к скопированным файлам шрифтов для создания новых url() в генерирующихся css (относительно `jsOutputPath/cssOutputTpl`)
 const fontsLoaderPublicPath = "../fonts";
-
-
 
 // Шаблон имени копирумого файла
 const fileLoaderNameTpl = "[name].[ext]";

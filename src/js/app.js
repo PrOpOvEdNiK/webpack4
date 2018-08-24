@@ -1,4 +1,4 @@
-import "../sass/style.scss";
+import "../sass/styles.scss";
 
 import 'bootstrap';
 
