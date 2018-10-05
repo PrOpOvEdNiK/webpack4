@@ -1,1 +1,17 @@
-@include font-face(Roboto, '../fonts/RobotoRegular/RobotoRegular', 400, normal);
+$font-weights-normal: (
+    //"Hairline": 100,
+    //"Thin": 200,
+    //    "Light": 300,
+        "Regular": 400,
+    //"Medium": 500,
+    //"Semibold": 600,
+    //"Bold": 700,
+    //"Heavy": 800,
+    //"Black": 900
+);
+
+@each $code, $width in $font-weights-normal {
+    $path: "../fonts/Roboto/Roboto-#{$width}/Roboto-#{$width}";
+
+    @include font-face(Roboto, $path, $width, normal);
+}
