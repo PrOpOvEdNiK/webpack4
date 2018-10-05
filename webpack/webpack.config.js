@@ -24,7 +24,8 @@ module.exports = {
     plugins: [
         plugins.ProvidePlugin,
         plugins.CssExtractPlugin,
-        plugins.SpritePlugin
+        plugins.SpritePlugin,
+        plugins.SVGSpritemapPlugin
     ],
     output: {
         path: path.resolve(__dirname, CONFIG.jsOutputPath),

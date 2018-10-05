@@ -9,7 +9,7 @@ const entryPoint = {
 // Путь к публичной части (здесь будут создаваться результирующие бандлы)
 const jsOutputPath = "../dist";
 
-// Шаблон для сохранения JS бандлов. Каждый [name] - 1 entryPoint. (относительно `outputPath`)
+// Шаблон для сохранения JS бандлов. Каждый [name] - 1 entryPoint. (относительно `jsOutputPath`)
 const jsOutputTpl = "js/[name].js";
 
 // Настройка ProvidePlugin
@@ -21,13 +21,12 @@ const providePlugin = {
 
 
 /******************************** CSS *************************************/
-// Шаблон для сохранения CSS бандлов (относительно `outputPath`)
+// Шаблон для сохранения CSS бандлов (относительно `jsOutputPath`)
 const cssOutputTpl = "css/[name].css";
 const cssOutputTplExtra = "css/[id].css";
 
 
 /******************************** FILES *************************************/
-
 // Имя папки с изображениями
 const imagesFolder = "images";
 
@@ -61,6 +60,25 @@ const spriteGenPng = "../src/images/sprite.png";
 const spriteGenScss = "../src/sass/mixins/sprite.scss";
 
 
+/******************************** SVG SPRITE *************************************/
+// Путь к папке с svg для спрайта
+const svgSourceFolder = "../src/svg";
+
+// Путь к svg-спрайту относительно jsOutputPath
+const svgOutputFile = "./svg/sprite.svg";
+
+// Файл в котором будут сгенерированы все переменные и миксины для SVG-спрайта
+const spriteGenSvg = "../src/sass/mixins/sprite-svg.scss";
+
+/*
+В этой сборке мы не используем сам sprite-svg.scss.
+Чтобы использовать SVG-спрайт необходимо сам файл спрайта (svgOutputFile) в футере сайта.
+Затем в нужных местах обращаться к нужному изображению конструкцией вида
+<svg><use href="#svg-instagram"></use></svg> (в href указвываем #, затем префикс из настроек SVGSpritemapPlugin, затем название исходного файла SVG)
+Чтобы иконка была зависима от цвета родителя необходимо, чтобы в path исходного файла присутствовал атрибут fill="currentColor"
+ */
+
+
 module.exports = {
     entryPoint,
     jsOutputPath,
@@ -75,5 +93,8 @@ module.exports = {
     fontsLoaderPublicPath,
     spriteImagesPath,
     spriteGenPng,
-    spriteGenScss
+    spriteGenScss,
+    svgSourceFolder,
+    svgOutputFile,
+    spriteGenSvg
 };
