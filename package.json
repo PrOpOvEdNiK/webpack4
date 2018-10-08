@@ -21,6 +21,7 @@
         "babel-loader": "^7.1.5",
         "babel-preset-env": "^1.7.0",
         "css-loader": "^1.0.0",
+        "css-mqpacker": "^7.0.0",
         "fibers": "^3.0.0",
         "file-loader": "^2.0.0",
         "mini-css-extract-plugin": "^0.4.3",
@@ -30,10 +31,10 @@
         "resolve-url-loader": "^2.3.0",
         "sass": "^1.14.1",
         "sass-loader": "^7.1.0",
-        "uglifyjs-webpack-plugin": "^2.0.1",
-        "webpack-spritesmith": "^0.5.3",
+        "svg-spritemap-webpack-plugin": "^2.7.1",
         "svgo": "^1.1.1",
-        "svg-spritemap-webpack-plugin": "^2.7.1"
+        "uglifyjs-webpack-plugin": "^2.0.1",
+        "webpack-spritesmith": "^0.5.3"
     },
     "scripts": {
         "build": "webpack -p --config ./webpack/webpack.config.js --display-error-details",

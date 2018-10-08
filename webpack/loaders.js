@@ -31,6 +31,7 @@ const SassLoader = {
                 plugins: [
                     require('precss')(),
                     require('autoprefixer')(),
+                    require("css-mqpacker")()
                 ]
             }
         },

@@ -10,6 +10,13 @@ i {
     }
 }
 
+@media screen and (max-width: 1200px) {
+    i {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 #app {
     font-family: Roboto, sans-serif;
     font-size: 16px;
@@ -27,4 +34,10 @@ i {
 
 .socnet {
     color: green;
+}
+
+@media screen and (max-width: 1200px) {
+    #app {
+        background: $white;
+    }
 }
