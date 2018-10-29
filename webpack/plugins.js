@@ -16,7 +16,12 @@ const MinifyJsPlugin = new UglifyJsPlugin({
     cache: true,
     parallel: true,
     sourceMap: true,
-    extractComments: true
+    extractComments: true,
+    uglifyOptions: {
+        compress: {
+            drop_console: true,
+        }
+    }
 });
 
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
