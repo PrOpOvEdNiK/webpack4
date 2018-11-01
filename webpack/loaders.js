@@ -9,7 +9,7 @@ const JSLoader = {
     use: {
         loader: 'babel-loader',
         options: {
-            presets: ['env']
+            presets: ['@babel/env']
         }
     }
 };
@@ -29,7 +29,6 @@ const SassLoader = {
             options: {
                 ident: 'postcss',
                 plugins: [
-                    require('precss')(),
                     require('autoprefixer')(),
                     require("css-mqpacker")(),
                     require("cssnano")()
