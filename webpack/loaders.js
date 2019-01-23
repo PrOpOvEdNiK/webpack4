@@ -1,15 +1,14 @@
-const CONFIG = require('./config');
+const CONFIG = require("./config");
 
-const Fiber = require('fibers');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const JSLoader = {
     test: /\.js$/,
     exclude: /node_modules/,
     use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
-            presets: ['@babel/env']
+            presets: ["@babel/env"]
         }
     }
 };
@@ -27,9 +26,9 @@ const SassLoader = {
         {
             loader: "postcss-loader",
             options: {
-                ident: 'postcss',
+                ident: "postcss",
                 plugins: [
-                    require('autoprefixer')(),
+                    require("autoprefixer")(),
                     require("css-mqpacker")(),
                     require("cssnano")()
                 ]
@@ -42,9 +41,9 @@ const SassLoader = {
             loader: "sass-loader",
             options: {
                 sourceMap: true,
-                outputStyle: 'compressed',
+                outputStyle: "compressed",
                 implementation: require("sass"),
-                fiber: Fiber
+                fiber: require("fibers")
             }
         }
     ]
@@ -67,7 +66,7 @@ const FileLoader = {
 const FontsLoader = {
     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
     use: [{
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
             name: CONFIG.fileLoaderNameTpl,
             outputPath: CONFIG.fontsLoaderOutputPath,

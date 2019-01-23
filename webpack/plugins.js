@@ -1,7 +1,7 @@
-const CONFIG =  require('./config');
+const CONFIG =  require("./config");
 
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 const ProvidePlugin = new webpack.ProvidePlugin(CONFIG.providePlugin);
 
@@ -15,7 +15,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MinifyJsPlugin = new UglifyJsPlugin({
     cache: true,
     parallel: true,
-    sourceMap: true,
+    sourceMap: false,
     extractComments: true,
     uglifyOptions: {
         compress: {
@@ -27,11 +27,11 @@ const MinifyJsPlugin = new UglifyJsPlugin({
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MinifyCssPlugin = new OptimizeCSSAssetsPlugin();
 
-const SpritesmithPlugin = require('webpack-spritesmith');
+const SpritesmithPlugin = require("webpack-spritesmith");
 const SpritePlugin = new SpritesmithPlugin({
     src: {
         cwd: path.resolve(__dirname, CONFIG.spriteImagesPath),
-        glob: '*.png'
+        glob: "*.png"
     },
     target: {
         image: path.resolve(__dirname, CONFIG.spriteGenPng),
@@ -45,18 +45,24 @@ const SpritePlugin = new SpritesmithPlugin({
     }
 });
 
-const SVGSpritemap = require('svg-spritemap-webpack-plugin');
-const SVGSpritemapPlugin = new SVGSpritemap({
-    src: path.resolve(__dirname, CONFIG.svgSourceFolder) + '/*.svg',
-    filename: CONFIG.svgOutputFile,
-    styles: path.resolve(__dirname, CONFIG.spriteGenSvg),
-    gutter: 10,
-    prefix: 'svg-',
-    svgo: {
-        plugins: [{
-            removeStyleElement: true
-        }]
-    }
+const SVGSpritemap = require("svg-spritemap-webpack-plugin");
+const SVGSpritemapPlugin = new SVGSpritemap(path.resolve(__dirname, CONFIG.svgSourceFolder) + "**/*.svg", {
+    output: {
+        filename: CONFIG.svgOutputFile,
+        svgo: {
+            plugins: [{
+                removeStyleElement: true
+            }]
+        }
+    },
+    sprite: {
+        prefix: "svg-",
+        gutter: 10,
+        generate: {
+            title: false
+        }
+    },
+    styles: false
 });
 
 

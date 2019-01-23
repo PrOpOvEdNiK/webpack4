@@ -5,7 +5,6 @@ const loaders = require('./loaders');
 const plugins = require('./plugins');
 
 module.exports = {
-    devtool: "source-map",
     entry: CONFIG.entryPoint,
     optimization: {
         minimizer: [

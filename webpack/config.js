@@ -67,14 +67,11 @@ const svgSourceFolder = "../src/svg";
 // Путь к svg-спрайту относительно jsOutputPath
 const svgOutputFile = "./svg/sprite.svg";
 
-// Файл в котором будут сгенерированы все переменные и миксины для SVG-спрайта
-const spriteGenSvg = "../src/sass/mixins/sprite-svg.scss";
-
 /*
 В этой сборке мы не используем миксин из sprite-svg.scss.
 Чтобы использовать SVG-спрайт необходимо сам файл спрайта (svgOutputFile) подключить в футере сайта.
 Затем, в нужных местах, обращаться к нужному изображению конструкцией вида
-<svg><use href="#svg-instagram"></use></svg> (в href указвываем #, затем префикс из настроек SVGSpritemapPlugin, затем название исходного файла SVG)
+<svg><use xlink:href="#svg-instagram"></use></svg> (в href указвываем #, затем префикс из настроек SVGSpritemapPlugin, затем название исходного файла SVG)
 Чтобы иконка была зависима от цвета родителя необходимо, чтобы в path исходного файла присутствовал атрибут fill="currentColor"
  */
 
@@ -95,6 +92,5 @@ module.exports = {
     spriteGenPng,
     spriteGenScss,
     svgSourceFolder,
-    svgOutputFile,
-    spriteGenSvg
+    svgOutputFile
 };
