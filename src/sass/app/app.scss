@@ -1,1 +1,24 @@
+body {
+    // зададим правильного порядок медиа запросов для mqpacker
+    // https://github.com/hail2u/node-css-mqpacker#the-first-win-algorithm
+    @include media-breakpoint-up(xs) {
+        background: $white;
+    }
+    @include media-breakpoint-up(sm) {
+        background: $white;
+    }
+    @include media-breakpoint-up(md) {
+        background: $white;
+    }
+    @include media-breakpoint-up(lg) {
+        background: $white;
+    }
+    @include media-breakpoint-up(xl) {
+        background: $white;
+    }
+    @include media-breakpoint-up(xxl) {
+        background: $white;
+    }
+}
+
 @import "main";
