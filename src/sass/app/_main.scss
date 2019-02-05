@@ -2,29 +2,33 @@ i {
     display: block;
     width: 50px;
     height: 50px;
+
     &.instagram {
         @include sprite($instagram);
     }
     &.ico {
         @include sprite($icoo1);
     }
-}
 
-@media screen and (max-width: 1200px) {
-    i {
+    @include media-breakpoint-up(lg) {
         width: 30px;
         height: 30px;
     }
 }
 
 #app {
-    font-family: Roboto, sans-serif;
+    font-family: $font-family-sans-serif;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: $font-weight-normal;
     background: $black;
+
     .main {
-        font-size: 20px;
+        font-size: $font-size-lg;
         color: $white;
+
+        @include media-breakpoint-up(lg) {
+            color: $green;
+        }
     }
 }
 
@@ -33,11 +37,5 @@ i {
 }
 
 .socnet {
-    color: green;
-}
-
-@media screen and (max-width: 1200px) {
-    #app {
-        background: $white;
-    }
+    color: $green;
 }
