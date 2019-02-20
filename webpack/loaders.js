@@ -8,7 +8,10 @@ const JSLoader = {
     use: {
         loader: "babel-loader",
         options: {
-            presets: ["@babel/env"]
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+            plugins: [
+                ["@babel/plugin-proposal-class-properties"]
+            ],
         }
     }
 };
