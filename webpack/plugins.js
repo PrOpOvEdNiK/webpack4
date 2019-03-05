@@ -62,7 +62,16 @@ const SVGSpritemapPlugin = new SVGSpritemap(path.resolve(__dirname, CONFIG.svgSo
             title: false
         }
     },
-    styles: false
+    styles: {
+        filename: path.resolve(__dirname, CONFIG.svgSpriteGenScss),
+        format: 'data',
+        variables: {
+            sprites: 'svg-sprites',
+            sizes: 'svg-sizes',
+            variables: 'svg-variables',
+            mixin: 'svg-sprite'
+        }
+    }
 });
 
 

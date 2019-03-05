@@ -67,12 +67,22 @@ const svgSourceFolder = "../src/svg";
 // Путь к svg-спрайту относительно jsOutputPath
 const svgOutputFile = "./svg/sprite.svg";
 
+// Файл в котором будут сгенерированы все переменные и миксины для спрайта
+const svgSpriteGenScss = "../src/sass/mixins/sprite-svg.scss";
+
 /*
-В этой сборке мы не используем миксин из sprite-svg.scss.
-Чтобы использовать SVG-спрайт необходимо сам файл спрайта (svgOutputFile) подключить в футере сайта.
+Использование SVG-спрайта.
+Способ 1:
+Необходимо сам файл спрайта (svgOutputFile) подключить в футере сайта.
 Затем, в нужных местах, обращаться к нужному изображению конструкцией вида
 <svg><use xlink:href="#svg-instagram"></use></svg> (в href указвываем #, затем префикс из настроек SVGSpritemapPlugin, затем название исходного файла SVG)
 Чтобы иконка была зависима от цвета родителя необходимо, чтобы в path исходного файла присутствовал атрибут fill="currentColor"
+
+Способ 2:
+В scss используем миксин @include svg-sprite(); Первым параметром передаем имя иконки, вторым массив переменных с именем $user-variables.
+Второй параметр можно использовать для покраски иконок. Для этого в самом свг файлу fill="currentColor" нужно заменить
+на var:color.fill="currentColor", а в $user-variables миксина передать (color: 'red').
+Третьим параметром можно передать $include-size: true, чтобы задать элементу исходные размеры иконки.
  */
 
 
@@ -92,5 +102,6 @@ module.exports = {
     spriteGenPng,
     spriteGenScss,
     svgSourceFolder,
-    svgOutputFile
+    svgOutputFile,
+    svgSpriteGenScss
 };
