@@ -51,5 +51,20 @@ i {
 
     &--whatsapp {
         @include svg-sprite('telegram', $user-variables: (color: 'red'), $include-size: false);
+
+        &::before {
+            content: url(get-svg-url('telegram', $user-variables: (color: 'blue')));
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            z-index: 1;
+        }
     }
+}
+
+img {
+    object-fit: cover;
+    object-position: top;
+    font: strong 1em/1.4 "Helvetica Neue";
 }

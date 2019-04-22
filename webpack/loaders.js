@@ -29,6 +29,7 @@ const SassLoader = {
                 ident: "postcss",
                 plugins: [
                     require("autoprefixer")(),
+                    require("postcss-object-fit-images")(),
                     require("css-mqpacker")(),
                     require("cssnano")()
                 ]

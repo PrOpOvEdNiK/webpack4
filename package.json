@@ -30,8 +30,10 @@
         "file-loader": "^3.0.1",
         "mini-css-extract-plugin": "^0.5.0",
         "napa": "^3.0.0",
+        "object-fit-images": "^3.2.4",
         "optimize-css-assets-webpack-plugin": "^5.0.1",
         "postcss-loader": "^3.0.0",
+        "postcss-object-fit-images": "^1.1.2",
         "resolve-url-loader": "^2.3.0",
         "sass": "^1.17.2",
         "sass-loader": "^7.1.0",
@@ -43,8 +45,8 @@
         "webpack-spritesmith": "^1.0.0"
     },
     "scripts": {
-        "build": "webpack -p --config ./webpack/webpack.config.js --display-error-details",
-        "watch": "webpack -d --watch --config ./webpack/webpack.config.js --display-error-details",
+        "build": "webpack -p --config ./webpack/webpack.config.js --display-error-details --verbose",
+        "watch": "webpack -d --watch --config ./webpack/webpack.config.js --display-error-details --verbose",
         "install": "napa"
     },
     "napa": {
