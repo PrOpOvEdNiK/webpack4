@@ -1,25 +1,17 @@
 import store from '../store';
 import axios from 'axios';
 
-export function fetchProducts() {
-    return {
-        type: 'FETCH_PRODUCTS'
-    }
-}
+export const fetchProducts = () => ({type: 'FETCH_PRODUCTS'});
 
-export function setProducts(products) {
-    return {
-        type: 'SET_PRODUCTS',
-        products
-    }
-}
+export const setProducts = (products) => ({
+    type: 'SET_PRODUCTS',
+    products
+});
 
-export function setError(error) {
-    return {
-        type: 'SET_ERROR',
-        error
-    }
-}
+export const setError = (error) => ({
+    type: 'SET_ERROR',
+    error
+});
 
 export function getProducts() {
     store.dispatch(fetchProducts());

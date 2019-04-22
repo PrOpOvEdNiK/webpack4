@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import Helmet from 'react-helmet';
+
 import * as actions from "../actions/begemot";
 
 import ProductsList from "../components/Begemot/ProductsList";
@@ -12,26 +14,25 @@ class BegemotPage extends React.Component {
     }
 
     renderLoader() {
-        return this.props.isFetching ? <Typography variant="h3" gutterBottom>Загрузка...</Typography> : '';
+        return !this.props.isFetching || <Typography variant="h3" gutterBottom>Загрузка...</Typography>;
     }
 
     renderError() {
-        return this.props.error ? <Typography variant="h3" gutterBottom>Ошибка!</Typography> : '';
+        return !this.props.error || <Typography variant="h3" gutterBottom>Ошибка!</Typography>;
     }
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Typography variant="h2" gutterBottom>
-                    Begemot Page
+                    Товары бегемота
                 </Typography>
 
                 {this.renderLoader()}
                 {this.renderError()}
                 
                 <ProductsList products={this.props.products}/>
-
-            </div>
+            </React.Fragment>
         )
     }
 }

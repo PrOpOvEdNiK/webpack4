@@ -33,6 +33,7 @@ const SassLoader = {
                 plugins: [
                     require("autoprefixer")(),
                     require("css-mqpacker")(),
+                    require("postcss-object-fit-images")(),
                     require("cssnano")()
                 ]
             }

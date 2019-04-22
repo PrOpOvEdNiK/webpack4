@@ -42,3 +42,21 @@
         src: $src;
     }
 }
+
+// функция для получения строки урл конкретного изображения из svg-спрайта
+@function get-svg-url($name, $user-variables: ()) {
+    $sprite: map-get($svg-sprites, $name);
+    $default-variables: map-get($variables, $name);
+    @if type-of($default-variables) == 'map' {
+        @each $key, $value in map-merge($default-variables, $user-variables) {
+            @if ( not map-has-key($default-variables, $key) ) {
+                @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+            }
+            $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(#{$value}));
+        }
+    } @else if type-of($user-variables) == 'map' {
+        @warn 'Sprite \'#{$name}\' does not contain any variables';
+    }
+
+    @return quote(#{$sprite});
+}

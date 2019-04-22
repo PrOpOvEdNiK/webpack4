@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import Helmet from 'react-helmet';
 
 import * as actions from '../actions/phones';
 
@@ -12,8 +13,12 @@ class HomePage extends React.Component {
     render() {
         return (
         <div>
+            <Helmet>
+                <title>Первая страница</title>
+            </Helmet>
+
             <Typography variant="h2" gutterBottom>
-                Home Page
+                Первая страница
             </Typography>
 
             <PhoneForm doAddPhone={this.props.doAddPhone}/>

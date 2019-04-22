@@ -18,12 +18,12 @@ const HeaderMenu = (props) => {
         <nav>
             <Link to="/">
                 <Button variant="contained" color="primary" className={classes.button}>
-                    Phones List
+                    Список
                 </Button>
             </Link>
             <Link to="/begemot/">
                 <Button variant="contained" color="primary" className={classes.button}>
-                    Begemot Page
+                    Товары бегемота
                 </Button>
             </Link>
         </nav>

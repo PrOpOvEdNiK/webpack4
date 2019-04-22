@@ -5,7 +5,6 @@ import * as serviceWorker from './serviceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import HomePage from './containers/HomePage';
 import BegemotPage from './containers/BegemotPage';
@@ -21,16 +20,12 @@ ReactDOM.render(
             <div>
                 <HeaderMenu/>
 
-                <TransitionGroup>
-                    <CSSTransition classNames="router" timeout={500}>
-                        <Switch>
-                            <Route exact path="/" component={HomePage}/>
-                            <Route path="/begemot/" component={BegemotPage}/>
+                <Switch>
+                    <Route exact path="/" component={HomePage}/>
+                    <Route path="/begemot/" component={BegemotPage}/>
 
-                            <Route render={() => <h1>Not Found</h1>} />
-                        </Switch>
-                    </CSSTransition>
-                </TransitionGroup>
+                    <Route render={() => <h1>Not Found</h1>}/>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>,
